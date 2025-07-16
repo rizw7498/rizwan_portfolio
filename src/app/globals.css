@@ -1,26 +1,63 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+body {
+  @apply bg-slate-200 dark:bg-gray-800 text-black dark:text-white transition-colors duration-500;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* For the animated background blobs */
+@keyframes blob {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+:root {
+  /* Light Mode Hover Colors for Socials (Often the brand color or a slightly darker shade) */
+  --color-social-hover-linkedin: #0A66C2; /* LinkedIn blue */
+  --color-social-hover-github: #181717;    /* GitHub black */
+  --color-social-hover-twitter: #1DA1F2;   /* Twitter blue */
+  --color-social-hover-instagram: #E1306C; /* Instagram pink/red */
+
+  /* Default text color for social icons (pre-hover) for better contrast */
+  --color-social-text-light: #4b5563; /* gray-600 */
+
+  /* Neon Cursor Colors - Light Mode */
+  --neon-cursor-light: #FF00FF; /* Example: Bright Pink */
+  --neon-cursor-dark: #00FFFF;  /* This value will be used if 'dark' class is NOT present, but the var is for 'dark' */
+}
+
+.dark {
+  /* Dark Mode Hover Colors for Socials (Lighter shades of brand colors for contrast) */
+  --color-social-hover-linkedin: #89b4f8; /* Lighter LinkedIn blue */
+  --color-social-hover-github: #f5f5f5;    /* White/light gray for GitHub */
+  --color-social-hover-twitter: #7bc4f7;   /* Lighter Twitter blue */
+  --color-social-hover-instagram: #ff6e8e; /* Lighter Instagram pink/red */
+
+  /* Default text color for social icons (pre-hover) for dark mode */
+  --color-social-text-dark: #d1d5db; /* gray-300 */
+
+  /* Neon Cursor Colors - Dark Mode */
+  --neon-cursor-light: #00FFFF; /* This value will be used if 'dark' class IS present, but the var is for 'light' */
+  --neon-cursor-dark: #FF00FF;  /* Example: Bright Cyan */
+}
+
+.clip-half-circle-top {
+  clip-path: circle(50% at 50% 0%);
 }
