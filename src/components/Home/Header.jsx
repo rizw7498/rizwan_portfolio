@@ -204,7 +204,7 @@ const Header = () => {
 
         {/* LinkedIn Icon */}
         <motion.a
-          href="https://www.linkedin.com/in/rizwan-ali-79214a266" // Replace with your LinkedIn
+          href="https://linkedin.com/in/rizzwanali" // Replace with your LinkedIn
           target="_blank"
           rel="noopener noreferrer"
           className="p-1 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700
